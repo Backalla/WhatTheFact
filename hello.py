@@ -1,5 +1,5 @@
 """Cloud Foundry test"""
-from flask import Flask
+from flask import Flask, render_template
 import cf_deployment_tracker
 import os
 
@@ -15,7 +15,7 @@ port = int(os.getenv('VCAP_APP_PORT', 8080))
 
 @app.route('/')
 def hello_world():
-    return 'Hello World! I am running on port ' + str(port)
+    return render_template("main.html")
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=port)
