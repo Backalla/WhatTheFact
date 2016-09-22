@@ -1,0 +1,6 @@
+API keys
+tusharvijaypawar - 03b67c6de655fffe568886ef637742ada072763a
+tusharpawar3004 -  c519a6ca6f325224e6c15cbaa89a69c126850593
+
+http://access.alchemyapi.com/calls/info/GetAPIKeyInfo?apikey=03b67c6de655fffe568886ef637742ada072763a
+http://access.alchemyapi.com/calls/info/GetAPIKeyInfo?apikey=c519a6ca6f325224e6c15cbaa89a69c126850593
