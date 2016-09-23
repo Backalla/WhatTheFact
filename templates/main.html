@@ -30,6 +30,19 @@
       <br>
       <h3>{{text}}</h3><br>
       <h3><strong>Response</strong></h3>
+
+      {% if search_results %}        
+        <br><br>
+        <h4>Related links</h4>
+        {% for search_result in search_results %}
+          <div class="row">
+            <h3><a href="{{search_result['link']}}">{{search_result['title']}}</a><h3><br>
+            source - {{search_result['source']}}<br>
+            {{search_result['text']}}<br><br><hr>
+          </div>
+        {% endfor %}
+      {% endif %}
+
       {% if entities %}        
         <br><br>
         <h4>Entities</h4>
@@ -67,6 +80,28 @@
               <tr>
                 <td>{{keyword['text']}}</td>
                 <td>{{keyword['relevance']}}</td>
+              </tr>
+            {% endif %}
+          {% endfor %}
+          </table>
+        {% endif %}
+      {% endif %}
+
+      {% if entities %}
+        <br><br>
+        <h4>Concepts</h4>
+        {% if concepts['status']=="OK" %}
+          <strong>Language : </strong>{{ concepts['language'] }}<br>
+          <table class="table table-hover">
+            <tr>
+              <th>Text</th>
+              <th>Relevance</th>
+            </tr>
+          {% for concept in concepts['concepts'] %}
+            {% if app_float(concept['relevance']) > 0.5 %}
+              <tr>
+                <td>{{concept['text']}}</td>
+                <td>{{concept['relevance']}}</td>
               </tr>
             {% endif %}
           {% endfor %}
